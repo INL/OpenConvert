@@ -1,0 +1,71 @@
+<?xml version="1.0"?> 
+
+<project name="OpenConvert" default="dist" basedir="."> 
+
+     <property name="src" value="./src"/> 
+     <property name="build" value="build"/>
+     <property name="dist" value="dist"/>
+
+	<property name="poidir" value="lib/poi-3.10.1/"/>
+	<property name="libdir" value="lib"/>
+ 	
+	<path id="java.class.path">
+		<fileset dir="${poidir}">
+			<include name="*.jar"/>
+		</fileset>
+		<fileset dir="lib/dependencies">
+			<include name="*.jar"/>
+		</fileset>
+                 <fileset dir="lib/itext">
+                        <include name="*.jar"/>
+                </fileset>
+		<fileset dir="lib/poi-3.10.1/ooxml-lib/">
+			<include name="*.jar"/>
+		</fileset>
+   	<pathElement path="lib/commons-cli-1.2.jar"/>
+   	<pathElement path="lib/docx4j-3.2.0.jar"/>
+   	<pathElement path="lib/jing.jar"/>
+   	<pathElement path="lib/ooxml-schemas-1.1.jar"/>
+   	<pathElement path="lib/saxon9he.jar"/>
+   	<pathElement path="lib/tagsoup-1.2.1.jar"/>
+	</path>
+	
+     <target name="init">  
+          <mkdir dir="${build}"/>
+     </target>
+
+
+     <target name="compile" depends="init"> 
+          <javac encoding="utf-8" srcdir="${src}" destdir="${build}">
+          <classpath refid="java.class.path"/>
+          </javac>
+     </target>
+
+
+
+   <target name="jar" depends="compile">
+         <jar destfile="${dist}/OpenConvert.step1.jar">
+              <fileset dir= "${build}"/>
+              <fileset dir="resources"/>
+              <zipgroupfileset dir="lib" includes="*.jar" excludes="META-INF/*.SF"/>
+              <zipgroupfileset dir="lib/dependencies" includes="*.jar" excludes="META-INF/*.SF"/>
+              <zipgroupfileset dir="lib/itext" includes="*.jar" excludes="META-INF/*.SF"/>
+              <zipgroupfileset dir="${poidir}" includes="*.jar" excludes="META-INF/*.SF"/>
+              <zipgroupfileset dir="lib/poi-3.10.1/ooxml-lib/" includes="*.jar" excludes="META-INF/*.SF"/>
+            </jar>
+            <jar destfile="${dist}/OpenConvert.jar">
+             <zipfileset src="${dist}/OpenConvert.step1.jar" excludes="META-INF/*.SF" />
+             <manifest>
+                  <attribute name="Main-Class" value="nl.openconvert.converters.OpenConvert"/>
+            </manifest>
+            </jar>
+    </target>
+
+    <target name="dist" depends="compile">
+        <jar destfile="${dist}/OpenConvert.nodeps.jar">
+              <fileset dir= "${build}"/>
+ 	      <fileset dir="resources"/>
+         </jar>
+    </target>
+
+</project>
