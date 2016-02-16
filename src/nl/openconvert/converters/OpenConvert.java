@@ -33,8 +33,10 @@ public class OpenConvert
 			System.err.println("Guessing from extensions...");
 			x = new ExtensionBasedConversion();
 		} else
+			
 		x = getConverter(to, from, true);
-
+		//x.setProperties(o.asProperties()); // pas op dit verandert het gedrag nogal...
+		
 		if (x != null)
 			DirectoryHandling.traverseDirectory(x, args[0], args[1],null);
 		else

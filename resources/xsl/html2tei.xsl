@@ -12,6 +12,7 @@
 <xsl:output method="xml" indent="yes"/>
 <xsl:variable name="css"><xsl:value-of select="//style"/></xsl:variable>
 
+
 <!-- Main block-level conversions -->
 <xsl:template match="html">
 <TEI xmlns="http://www.tei-c.org/ns/1.0">

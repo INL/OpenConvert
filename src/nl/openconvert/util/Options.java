@@ -132,4 +132,9 @@ public class Options
 	{
 		new Options(args);
 	}
+	
+	public Properties asProperties()
+	{
+		return this.properties;
+	}
 }
