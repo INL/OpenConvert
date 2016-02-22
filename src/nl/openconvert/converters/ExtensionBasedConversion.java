@@ -3,13 +3,14 @@ package nl.openconvert.converters;
 import java.util.Properties;
 import java.io.*;
 
+import nl.openconvert.filehandling.ConversionException;
 import nl.openconvert.filehandling.SimpleInputOutputProcess;
 
 public class ExtensionBasedConversion implements SimpleInputOutputProcess
 {
 
 	@Override
-	public void handleFile(String inFilename, String outFilename)
+	public void handleFile(String inFilename, String outFilename)  throws ConversionException
 	{
 		// TODO Auto-generated method stub
 		

@@ -23,7 +23,14 @@ public class MultiThreadedFileHandler implements DoSomethingWithFile, SimpleInpu
 		public void run() 
 		{
 			if (fileName != null && baseHandler1 != null)
-				baseHandler1.handleFile(fileName);
+				try
+				{
+					baseHandler1.handleFile(fileName);
+				} catch (ConversionException e)
+				{
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 		}
 	}
 	
@@ -41,7 +48,14 @@ public class MultiThreadedFileHandler implements DoSomethingWithFile, SimpleInpu
 		public void run() 
 		{
 			if (inFile != null && baseHandler2 != null)
-				baseHandler2.handleFile(inFile,outFile);
+				try
+				{
+					baseHandler2.handleFile(inFile,outFile);
+				} catch (ConversionException e)
+				{
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 		}
 	}
 	
@@ -119,7 +133,7 @@ public class MultiThreadedFileHandler implements DoSomethingWithFile, SimpleInpu
 	}
 
 	@Override
-	public void setProperties(Properties properties) 
+	public void setProperties(Properties properties)  throws ConversionException
 	{
 		// TODO Auto-generated method stub
 		if (this.baseHandler2 != null)

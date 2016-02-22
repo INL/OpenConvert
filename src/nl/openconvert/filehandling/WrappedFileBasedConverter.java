@@ -19,7 +19,7 @@ public class WrappedFileBasedConverter implements StreamInputOutputProcess
 	}
 	
 	@Override
-	public void handleFile(InputStream inStream, OutputStream outStream)
+	public void handleFile(InputStream inStream, OutputStream outStream)  throws ConversionException
 	{
 		// TODO Auto-generated method stub
 		try
@@ -54,7 +54,7 @@ public class WrappedFileBasedConverter implements StreamInputOutputProcess
 	}
 
 	@Override
-	public void setProperties(Properties properties)
+	public void setProperties(Properties properties)  throws ConversionException
 	{
 		// TODO Auto-generated method stub
 		base.setProperties(properties);

@@ -19,7 +19,7 @@ public class WrappedFileBasedAction implements DoSomethingWithStream
 	}
 	
 	@Override
-	public void handleFile(InputStream inStream)
+	public void handleFile(InputStream inStream)  throws ConversionException
 	{
 		// TODO Auto-generated method stub
 		try

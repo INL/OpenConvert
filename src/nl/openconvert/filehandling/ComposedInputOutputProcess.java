@@ -23,7 +23,7 @@ public class ComposedInputOutputProcess implements SimpleInputOutputProcess
 	}
 	
 	@Override
-	public void handleFile(String inFilename, String outFilename) 
+	public void handleFile(String inFilename, String outFilename) throws ConversionException
 	{
 		// TODO Auto-generated method stub
 		File previousOut = null;

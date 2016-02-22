@@ -65,7 +65,7 @@ public class DirectoryHandling
 			this.destinationFolder = destinationFolder;
 		}
 		@Override
-		public void handleFile(String fileName)
+		public void handleFile(String fileName) throws ConversionException
 		{
 			// TODO Auto-generated method stub
 			File f = new File(fileName);
@@ -184,7 +184,7 @@ public class DirectoryHandling
 					try 
 					{
 						p.handleFile(f.getCanonicalPath(), outFolderName);
-					} catch (IOException e) {
+					} catch (Exception e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
@@ -254,7 +254,7 @@ public class DirectoryHandling
 			try
 			{
 				p.handleFile(currentDirectory.getCanonicalPath(),outputDirectory.getCanonicalPath()) ;
-			} catch (IOException e)
+			} catch (Exception e)
 			{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -337,7 +337,7 @@ public class DirectoryHandling
 					try 
 					{
 						p.handleFile(f.getCanonicalPath(), outputDirectory);
-					} catch (IOException e) {
+					} catch (Exception e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
@@ -360,7 +360,7 @@ public class DirectoryHandling
 			try 
 			{
 				action.handleFile(f.getCanonicalPath());
-			} catch (IOException e) 
+			} catch (Exception e) 
 			{
 				// TODO Auto-generated catch block
 				e.printStackTrace();

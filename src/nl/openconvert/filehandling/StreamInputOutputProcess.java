@@ -5,6 +5,6 @@ import java.io.*;
 
 public interface StreamInputOutputProcess 
 {
-	public void handleFile(InputStream inFile,  OutputStream outFile);
-	public void setProperties(Properties properties);
+	public void handleFile(InputStream inFile,  OutputStream outFile)  throws ConversionException;
+	public void setProperties(Properties properties)  throws ConversionException;
 }
